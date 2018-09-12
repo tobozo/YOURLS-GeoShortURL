@@ -75,6 +75,8 @@ function geo_short_url_admin_page_update() {
 yourls_add_filter( 'get_request', 'geo_get_request' );
  
 function geo_get_request( $request ) {
+
+  if(substr($request, -1)=='+') return $request;
   
   $mode  = intval(yourls_get_option( 'geo_short_url_mode', 1 ));
   
